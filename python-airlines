@@ -1,0 +1,170 @@
+#Display the following message: "Welcome to the Python Airlines Prototype Membership System".
+#Print a blank line.
+
+print("Welcome to the Python Airlines Prototype Membership System")
+print()
+
+#Ask the user to input information about their annual and lifetime metrics:
+
+#First Name
+print("What is your first name?")
+FirstName=input()
+FirstName=str(FirstName)
+
+#Annual Miles
+print("How many miles have you flown this year?")
+AnnualMiles=input()
+AnnualMiles=int(AnnualMiles)
+
+#Annual Segments
+print("How many segments have you flown this year?")
+AnnualSegments=input()
+AnnualSegments=int(AnnualSegments)
+
+#Annual Dollars
+print("How much money have you spent this year (USD)?")
+AnnualDollars=input()
+AnnualDollars=float(AnnualDollars)
+
+#Lifetime Miles
+print("How many lifetime miles have you flown?")
+LifetimeMiles=input()
+LifetimeMiles=int(LifetimeMiles)
+
+#Ask the user to input information about their next/upcoming flight:
+
+#Lounge Check
+print("Is your next flight to (or through) the Chicago airport?")
+LoungeCheck=input()
+valid_phrases = {"YES", "Yes", "yes", "Y", "y"}
+LoungeCheck=bool(LoungeCheck)
+is_lounge_eligible= LoungeCheck in valid_phrases
+
+if LoungeCheck in valid_phrases: True
+else: False
+
+#Ticket Price
+print("How much will a Coach Class ticket for your next flight cost (USD)?")
+TicketPrice=input()
+TicketPrice=float(TicketPrice)
+print()
+
+#Determine Annual membership tier
+
+#Sapphire
+if AnnualMiles >= 25000 and AnnualMiles <= 49999 or \
+   AnnualSegments >= 30 and AnnualSegments<= 59 or \
+   AnnualDollars >= 3000 and AnnualDollars<=6999.99:
+    FreeBags="0"
+    Upgrades="Business Class"
+    Lounge="No"
+    Discount="15%"
+    AnnualTier="Sapphire"
+
+#Emerald
+elif AnnualMiles >= 50000 and AnnualMiles <= 74999 or \
+     AnnualSegments >= 60 and AnnualSegments<= 89 or \
+     AnnualDollars >= 7000 and AnnualDollars<=14999.99:
+    FreeBags="1"
+    Upgrades="Business Class"
+    Lounge="No"
+    Discount="20%"
+    AnnualTier="Emerald"
+
+#Ruby
+elif AnnualMiles >= 75000 and AnnualMiles <= 99999 or \
+     AnnualSegments >= 90 and AnnualSegments<= 119 or \
+     AnnualDollars >= 15000 and AnnualDollars<=23999.99:
+    FreeBags="2"
+    Upgrades="First Class"
+    Lounge="No"
+    Discount="25%"
+    AnnualTier="Ruby"
+
+#Diamond
+elif AnnualMiles >= 100000 or \
+     AnnualSegments >= 90 or \
+     AnnualDollars >= 24000:
+    FreeBags="3"
+    Upgrades="First Class"
+    Lounge="Yes"
+    Discount="30%"
+    AnnualTier="Diamond"
+
+#Coal
+else:
+    FreeBags = "0"
+    Upgrades = "None"
+    Lounge = "No"
+    Discount = "0%"
+    AnnualTier="None"
+
+#Determine Lifetime membership tier
+
+#Emerald
+if LifetimeMiles >= 1000000 and LifetimeMiles <= 1999999:
+    FreeBags="1"
+    Upgrades="Business Class"
+    Lounge="No"
+    Discount="20%"
+    LifetimeTier="Emerald"
+
+#Ruby
+elif LifetimeMiles >= 2000000 and LifetimeMiles <= 2999999:
+    FreeBags="2"
+    Upgrades="First Class"
+    Lounge="No"
+    Discount="25%"
+    LifetimeTier="Ruby"
+
+#Diamond
+elif LifetimeMiles >= 3000000:
+    FreeBags="3"
+    Upgrades="First Class"
+    Lounge="Yes"
+    Discount="30%"
+    LifetimeTier="Diamond"
+
+#Coal
+else:
+    LifetimeTier="None"
+
+print(f"{FirstName}, this year, you have flown {AnnualSegments:,d} flights for {AnnualMiles:,d} miles "
+      f"and spent ${AnnualDollars:,.2f} USD with Python Airlines. "
+      f"Lifetime, you have flown {LifetimeMiles:,d} miles.")
+print(f"Membership Benefits: Free Bags: {FreeBags}, Upgrades: {Upgrades}, "
+      f"Lounge Access: {Lounge}, Discount: {Discount}, "
+      f"Tier: {AnnualTier if LifetimeTier == 'None' else LifetimeTier}")
+print()
+
+# Display membership status messages based on tier achievements
+if LifetimeTier != "None":
+    print(f"You have achieved lifetime frequent-flier status at the {LifetimeTier} level!")
+    if AnnualTier != LifetimeTier and AnnualTier != "None":
+        print(f"This year, you have also achieved annual frequent-flier status at the {AnnualTier} level!")
+    elif AnnualTier != "None":
+        print(f"This year, you have achieved annual frequent-flier status at the {AnnualTier} level!")
+    else:
+        print("You are on your way to achieving annual frequent-flier status with Python Airlines!")
+        print()
+
+#At the end of the program, display a "reward summary" of the rewards earned.
+    if LifetimeTier != "None" or AnnualTier!="None":
+        print("You have unlocked the following rewards:")
+    if int(FreeBags) >=1:
+        print(f"-{FreeBags} free checked bags per flight")
+    if Upgrades != "None":
+        print(f"-Free seat upgrades to {Upgrades}")
+
+#Lounge
+    if Lounge in valid_phrases:
+        print("-Free access to the club lounge next time flying to/through in Chicago")
+    if Lounge not in valid_phrases:
+        print("-Enjoy free access to the club lounge in Chicago on your next/upcoming flight!")
+
+#Discount reward
+    if Discount != "0%":
+        DiscountMultiplier=int(Discount.replace("%",""))/100
+        DiscountTicket=TicketPrice-(DiscountMultiplier*TicketPrice)
+        print(f"-Your upcoming flight ticket price of ${TicketPrice} USD was reduced by {Discount} to ${DiscountTicket:.2f} USD.")
+    
