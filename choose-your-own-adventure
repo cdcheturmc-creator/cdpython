@@ -1,0 +1,80 @@
+#Welcome
+
+print("Welcome to \"Pokemon Adventure Quest\"! \n\nIn this game, you are a powerful Pokemon of your choosing on a mission to defeat a powerful Pokemon with one weakness, but you will have to extensively train to prepare yourself for this battle. Make the right decisions and you will undoubtedly emerge victorious!")
+print()
+#Print each sentence (or paragraph, as appropriate) of your short story separately. Add a blank line between each sentence (or paragraph, as appropriate).
+
+print("Once upon a time, Con, an upcoming Pokemon trainer emerged from wallet town in order to fight his very first battle. \
+to do so, he meets with the local Professor, Joak. The Professor gives him a decision on which Pokemon to choose: [Pikachu] or [Ghastly]?")
+
+PokemonChoice=input("Enter your choice (Pikachu or Ghastly): ").strip().lower()
+#Ghastly scenario
+if PokemonChoice=="ghastly":
+    print("Con selects the Ghastly from the two Pokemon. He encounters a wild Pidgey and throws out Ghastly to fight, but then he disappears.")
+    print("He is a ghost after all. That sly guy. Unfortunately Con has lost the Pokemon so Professor Joke won't give him another one.")
+    print("He must work for Professor Joke for 100 days to pay off his debt.")
+    print("The End.")
+
+#Pikachu scenario
+elif PokemonChoice=="pikachu":
+    print("Con selects Pikachu. Pikachu does not want a Pokeball, but that is ok.")
+    print("He fights his first battle against his rival, Lary, and wins decisively!")
+    print()
+
+#Journey Direction
+    print("Con journeys into the wilderness, realizing that if he is going to beat the powerful Pokemon, he must train.")
+    print()
+    print("However, he realizes he must train against something to make him stronger.")
+    print()
+    print("Will Con choose to train against rock type Pokemon by going [East] or water type Pokemon by going [West]?")
+    print()
+
+    DirectionChoice=input("Enter your choice (East or West): ").strip().lower()
+
+#East scenario
+    if DirectionChoice=="west":
+        print("Con chooses to go westward towards the water type Pokemon. Pikachu gets some experience fighting water type Pokemon.")
+        print()
+        print("Unfortunately, he absolutely creams them and thus does not grow stronger, like going to the gym and lifting one pound weights!")
+        print()
+        print("He gets to the point in his journey where he will face the powerful Pokemon and gets absolutely decimated.")
+        print()
+        print("Con goes back to Professor Joke hanging his head in shame, better luck next time. The End")
+        #exit()?
+
+#West scenario
+    elif DirectionChoice=="east":
+        print("Con chooses to go eastward towards the rock type Pokemon. Pikachu gets stronger as he faces the rock type Pokemon, it's tough!")
+        print()
+        print("After exhaustively training to the point of a good night's rest, Con and Pikachu continue onward towards the powerful Pokemon")
+        print()
+#Fighting the powerful Pokemon
+        print("After a long journey of many gym leaders naps, and several taco Tuesdays, Con and Pikachu finally find the powerful Pokemon, Mewthree")
+        print()
+        print("They gear up for the battle, trying to ensure Pikachu has the right equipment to face Mewthree")
+        print()
+        print("Pikachu wants to learn two moves, however, Pikachu can only choose one more move to learn, which will it be [Swift] or [Thunder]?")
+        print()
+        
+        MoveChoice=input("Enter Pikachu's move he will learn and bring into the battle (Swift or Thunder):").strip().lower()
+
+#Learning Thunder
+    if MoveChoice=="thunder":
+        print("Pikachu learns Thunder, but then finds out that MewThree is so powerful that Thunder doesn't even budge him")
+        print()
+        print("MewThree decimates Pikachu, sending him to the 5th dimension, never to be seen again")
+        print()
+        print("The End")
+
+#Learning Swift
+    elif MoveChoice=="swift":
+        print("Pikachu learns Swift. MewThree ends up being someone who is powerful, but extremely slow.")
+        print()
+        print("Plus, he despises Taylor Swift, so the name of the move simply aggravates him to the point of making terrible decisions")
+        print()
+        print("Pikachu uses Swift to run around MewThree three times. Mewthree continues turning counterclockwise with Pikachu but is not fast enough")
+        print()
+        print("He could use Psychic, but again, he is aggravated with Taylor Swift. Pikachu gradually gnaws at MewThree's tail, his source of power, until it falls off")
+        print()
+        print("Con and Pikachu win against MewThree and prevent the universe's demise! Congratulations!")
+        print()
